@@ -1,0 +1,364 @@
+---
+title: 搭建一个属于你的免费图床（PicList+Cloudflare R2）
+tags:
+  - 教程
+  - 图床
+  - PicList
+  - Cloudflare
+categories:
+  - 教程
+  - 项目教程
+date: 2024-08-27 19:16:00
+excerpt_type: text
+---
+
+## 我为什么需要一个图床？
+
+众所周知，要部署一个像样的个人博客，除了页面的样式设计、功能设计外，最大的问题可能来自内容存储，而在不同形式的文件中，图片/多媒体的存储和调用恐怕是最令人头疼的。
+
+最初建站时，代码和文字部分我都放在 github 仓库托管，但个人仓库的最大容量只有 1G，用来储存文字内容还堪堪够用，但要是连图片也一股脑放进去，恐怕是维持不了多久。更何况，在国内环境，github 的内容加载速度在没有 CDN 加速的情况下实在是感人，综合考虑这两点后，我很快就决定自己动手，搭建更适合自己的图床。
+
+<!-- more -->
+
+顺便跟不了解的观者科普一下何谓图床：互联网上的图片资源，尤其是大型网站的图片资源，一般都会存放在某种专属服务器上，这就是我们俗称的“图床”。这种存放方式不仅是为了在图片规模变大时方便统一管理，更是为了方便“引用”——试想一下，假如你把图片老老实实放在本地，那么每往一个新站点发布一次图片，你都需要把图片从本地上传一遍，这不仅对发布者而言极为烦琐，白白占用带宽和上传时间，对各个网站的管理者而言，更会额外占用存储服务器的资源。反之，如果我们把图片部署到服务器上，那么我们只需要上传一次图片，以后在各处用到的时候，只需要一道 URL 链接；一张图片只用在一处服务器上储存一次，随后便可以全网加载，而不用在不同的网站服务器里“处处留痕”，相比次次本地上传，不可谓不高效。
+
+除了博客图片加载，图床当然也有其他 ~~或“正道”或“邪道”~~ 的用途，实际上，只要你有加载大量图片的需求，我都建议你动手，自己搭一个出来玩玩。毕竟，生命不息， ~~作死~~ 折腾不止。
+
+### 我需要什么样的图床？
+
+市面上可以选择的图床有很多，这里先介绍一些个人和企业开发者常用的方案，以及我最终的选择：
+
+- **Gitee 图床：** 本身是国内平台，国内访问速度是够的，但个人仓库最大只支持 500M，对于图床来说小了点。另外，官方前些年出手封了一批当图床用的仓库，现在 Gitee 全站的图片都开启了防盗链，无法在你的网页中加载，眼看是不可能再用来当图床了。
+- **GitHub 图床：** 优劣如前述。如果你的图片库不算很大，并且有能力通过镜像、CDN 等解决访问问题，那就非常完美。
+- **七牛云等云存储平台：** 七牛云有 10G 免费空间，国内访问速度也够快，但需要有在国内备案的域名，必须要买域名+服务器，否则一个月之后就无法使用它的测试域名。
+- **国内云厂商的对象存储：** 阿里云/腾讯云等免费试用后需要付费，速度是没话说的，但对个人玩家来说，尤其是阿里云，实在是太贵，只建议有一定规模的运营者购买。
+- **国外云厂商的对象存储：**
+  - **Google 云的对象存储：** 免费空间 5G，每月 1G 的出站流量；问题还是一样——国内访问速度不佳。
+  - **Oracle 云（甲骨文）的对象存储：** 免费空间 20G，每月限制 5 万次 API 调用，需要把桶设置为公共的，才可以访问；上传速度很快；访问速度也还可以，部分有延时。
+  - **Cloudflare R2 对象存储：** 免费空间 10G，上传等 A 类操作每月 100 万次，下载等 B 类操作每月 1000 万次，（富有且慷慨.jpg）需要绑定一张外币信用卡，访问速度也不差。
+
+从我的使用场景来看，Cloudflare R2 明显最符合需求，有访问速度，空间足，流量限额也相当宽松，对于个人博客甚至是小型企业网站都是足够的，所以——Cloudflare R2，启动！
+
+::: info
+
+后来又了解了一下 Cloudflare，人家在服务全世界超过 20%的互联网流量的同时，不仅提供免费对象存储，还提供面向中小企业和个人的代码托管、CDN 加速、DNS 解析、DDoS 防护等一揽子免费服务，关键是质量也不含糊，“赛博菩萨”确实名副其实。
+
+:::
+
+## 准备工作
+
+选好搭建方案后，我们先来做些准备工作。首先，**Cloudflare R2 服务要求绑定一张银行卡，可以是国内银行的银联/VISA。这既是为了确认身份，方便可能的付费，也是为了防止免费项目被恶意注册滥用。而只要我们在前文所述的规定限额内使用，就不会有任何计费，临近超额时，Cloudflare 也会反复发送提醒，放心绑卡就是了。**
+
+::: tip
+
+绑卡时记得关闭“境外锁”等限制服务，否则会提示请求被拒绝。
+
+:::
+
+其次，在对 Cloudflare 进行配置时，为方便起见，我们需要在 python 环境下用封装好的 SDK 调用其 API，请提前在本地部署好相应环境。当然，你或许看过[我先前的博客](https://zbf1009.github.io/posts/583ade79/)，在本地部署了 scoop 或其他包管理器，那么你只需要打开命令行，输入`scoop install python`或其他包管理器对应的命令，事情就能轻松解决。
+
+## 搭建流程
+
+### Cloudflare R2 配置
+
+#### 注册+绑卡
+
+打开[Cloudflare 官方网站](https://www.cloudflare.com/zh-cn/developer-platform/r2/)，注册登录后，你应当能够看到如下界面：
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
+    src="https://image.you-xuan.us.kg/2024/08/28/202408281150987.png" width="100%" >
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">左侧写明了免费存储规格，右侧是绑卡页面</div>
+</center>
+
+上图中的 A 类即代表上传等操作，B 类代表下载、访问等操作，“10GB/月免费”是指：**每个月都在 10G 内享有免费存储，即相当于永久 10G 免费空间。**
+
+#### 创建存储桶
+
+信用卡绑定成功后，左侧会出现“创建存储桶”的选项。
+对于国内访问数据居多的使用场景，可以把桶放在亚太地区，下方点击“创建存储桶”即可。
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
+    src="https://image.you-xuan.us.kg/2024/08/28/202408281607397.png" width="100%" >
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">创建存储桶</div>
+</center>
+
+桶创建成功后，我们的图床其实就已搭好了框架，可以直接从本地上传文件，至此，你完全可以把它当做一个小一号的网盘使用。
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
+    src="https://image.you-xuan.us.kg/2024/08/28/202408281614515.png" width="100%" >
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">一个“崭新的”存储桶</div>
+</center>
+
+#### 配置访问链接
+
+然而，不要忘记，我们要搭的毕竟是个图床，不是网盘，接下来，我们要让其中的文件能够方便地通过链接从公网直接访问，让它变成真正意义上的图床。
+首先，我们在主页点击创建的桶，来到桶的主页，在上方 Tab 页中点击“设置”页，下滑，找到“公开访问”相关配置：
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
+    src="https://image.you-xuan.us.kg/2024/08/28/202408281626202.png" width="100%" >
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">Cloudflare支持的两种公开访问模式</div>
+</center>
+
+如果你有自己的域名，那么先把自己的域名在 Cloudflare 的解析服务中解析，用给出的链接填在“自定义域”中，点击“连接域”，即可通过你自己的域名访问该图床。当然，如果你没有，Cloudflare 也提供自己的子域域名，只不过功能受限，速度受限，然而对于图床，这已经完全够用了。
+
+开启 R2.dev 子域后，下方即会出现一个相应的存储桶 URL，此时，在该桶中上传文件，便会生成相应的文件访问 URL，其格式为：R2.dev 子域 URL+桶内文件夹层级+文件名。
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
+    src="https://image.you-xuan.us.kg/2024/08/28/202408281641586.png" width="100%" >
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">桶内图片的URL</div>
+</center>
+
+到这里，一个像模像样的图床基本已经成型了，然而，不知你发现没有，我们还有一个重要问题没有解决——**难道，我们只能这样打开浏览器一张一张上传图片？** 当然不是。对于开发者而言，为了效率，这样的大量重复操作必须得有一个批量的、本地化的解决办法，而 Cloudflare 接入的 Amazon 的 S3 API 就给了我们这样一个解决办法，接下来，我们看看如何通过调用 S3 API 进行上传下载，并通过 PicList 接入该 API 实现一站式、本地化的图床图片管理。
+
+### S3 API 配置
+
+要使用 S3 API，我们首先要获取用于身份验证的 AccessKeyId 和 SecretAccessKey，此时只需回到我们的仪表盘主页，在右侧点击“创建 API 令牌”，在令牌页面输入令牌名称，指定令牌的权限即可。需要注意的是，此处我们需要的令牌权限必须包含“读”和“写”双向权限（如下图所示），这样才能在通过令牌验证后实现存入图片和读取图片
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
+    src="https://image.you-xuan.us.kg/2024/08/28/202408281700506.png" width="100%" >
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">指定令牌权限</div>
+</center>
+
+令牌创建成功后，下方即有 S3 API 需要的信息：
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
+    src="https://image.you-xuan.us.kg/2024/08/28/202408281710556.png" width="100%" >
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">S3 API凭据</div>
+</center>
+
+到这里，我们共获取了四条需要用到的关键凭据，分别是：自定义域名/公共 R2.dev 存储桶 URL（后面用到）、访问秘钥 ID（对应 AccessKeyId）、机密访问秘钥（对应 SecretAccessKey），以及终结点/endpoint（后面用到），接下来开始的就是本地工作了。
+
+::: warning
+
+根据 Cloudflare 的安全策略，令牌信息页面一旦关闭，便永远不再展现，如果忘记了相应的信息，只能重新生成新令牌，所以请将令牌信息记录于可信的位置，妥善保管。
+
+:::
+
+实际上，S3 API 的鉴权方式相当复杂，不同请求对应完全不同的 Authorization，如果我们自己动手配置，仍有诸多不便，但好在，已经有 SDK 把上述过程封装好了。
+还记得我们的前置要求，本地部署 python 环境吗？现在，你只需要在命令行程序中输入以下命令，便可一键安装：
+
+```bash
+pip install boto3
+```
+
+::: info
+
+较近版本的 python 包在安装时应当自带了 pip，如果你无法执行此命令，则应当考虑手动安装 pip，而手动安装 pip 最方便的办法，依然是通过各类包管理器命令执行。
+
+:::
+
+安装完成后，再键入`python`，进入环境，执行以下命令：
+
+```python
+import os
+import boto3
+from botocore.client import Config
+
+def init_s3(end_point, access_key, secret_key, region_name='auto'):
+    return boto3.client(
+    's3',
+    aws_access_key_id=access_key,
+    aws_secret_access_key=secret_key,
+    use_ssl=True,
+    region_name=region_name,
+    endpoint_url=end_point,
+    config=Config(s3={"addressing_style": "path"})
+    )
+
+s3_endpoint = "https://xx.r2.cloudflarestorage.com" # 换成你自己的
+s3_access_key = "xx" # 换成你自己的
+s3_secret_key = "xx" # 换成你自己的
+region_name = "auto"
+s3 = init_s3(s3_endpoint, s3_access_key, s3_secret_key, region_name)
+```
+
+::: tip
+
+对于不熟悉命令行的用户，请逐个执行命令。前三行分别为三个单独的命令，可以逐行执行，而 def 开始到 14 行是一整个完整命令，后面又是单行命令，复制粘贴时请注意保持命令完整,后文的命令不再做说明。
+另外，对于多行命令，粘贴后务必多输入两个回车，直到行首提示符从“···”变为“>>>”，此时多行命令才被视为输入结束，再输入下一个命令。
+
+:::
+
+然后，我们列出所有 bucket：
+
+```python
+buckets = s3.list_buckets()['Buckets']
+print(buckets)
+```
+
+执行成功后，应当输出一串类似的字符：
+
+```python
+# 输出
+[{'Name': 'houge', 'CreationDate': datetime.datetime(2024, 8, 23, 8, 37, 30, 977000, tzinfo=tzutc())}]
+```
+
+然后，我们试着上传一张图片：
+
+```python
+file_name = "xx.png"
+response = s3.put_object(Bucket='houge', Key=os.path.basename(file_name), Body=open(file_name, 'rb'))
+if response['ResponseMetadata']['HTTPStatusCode'] == 200:
+    print("Upload file successfully!")
+```
+
+上传成功后，我们在桶主页就可以看到图片的详细信息和其对应的链接——大功告成！
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
+    src="https://image.you-xuan.us.kg/2024/08/28/202408281759398.png" width="100%" >
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">一键复制即可使用</div>
+</center>
+
+### PicList 图床配置
+
+现在，事情来到了最后一步——我们需要一个工具软件来接入我们配置好的 S3 API，方便我们从本地上传和管理图片，而不必每次都打开 cloudflare 面板，而 PicList 就是这方面的不二之选。
+使用 scoop 安装：
+
+```bash
+scoop bucket add lemon https://github.com/hoilc/scoop-lemon
+scoop install lemon/piclist
+```
+
+或者打开[PicList 官方网站](https://piclist.cn/)，下载安装软件，打开后，可以看到，其已经内置支持了不少图床：
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
+    src="https://image.you-xuan.us.kg/2024/08/28/202408281813957.png" width="100%" >
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">内置图床</div>
+</center>
+
+但是……好像就是没有我们用的 cloudflare R2？别急，移步左侧的“插件”选项，搜索“s3”，安装第一个插件即可。
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
+    src="https://image.you-xuan.us.kg/2024/08/28/202408281820724.png" width="100%" >
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">S3插件</div>
+</center>
+安装好后，来到“图床”选项的“Amazon S3”，新建配置，按要求填入指定的参数。
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
+    src="https://image.you-xuan.us.kg/2024/08/28/202408281825178.png" width="100%" >
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">空白配置页</div>
+</center>
+
+各项配置说明如下：
+
+- 图床配置名：自订即可。
+- 应用秘钥 ID：对应 AccessKeyId/访问秘钥 ID。
+- 应用秘钥：对应 SecretAccessKey/机密访问秘钥。
+- 桶名：对应你在 Cloudflare 上创建的桶名称。
+- 文件路径：定义桶内文件的上传存储路径，后面详细说明。
+- 地区：留空即可。
+- 自定义节点：对应 endpoint/终结点。
+- 代理：按需填写（上传没问题留空即可）。
+- 自定义域名：对应 Cloudflare 自定义域或公共 R2.dev 存储桶 URL。
+- 设定网址后缀：留空即可。
+
+下面的几个开关只有`ForcePathStyle`需要设置为 yes，其他不用管，未做说明的项留空即可。
+
+下面详细说明“文件路径”选项。
+
+该设置支持几个有固定含义的 payload 选项（如下所列），这些选项用于规定文件的上传路径和命名规则，而我们需要做的，就是根据需要进行恰当组合。
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
+    src="https://image.you-xuan.us.kg/2024/08/28/202408281844639.png" width="100%" >
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">各项payload及其含义</div>
+</center>
+
+根据上图所列，文件路径可以写成这样：
+
+`{year}/{month}/{fileName}.{extName}`
+
+这样一个文件路径代表什么意思呢？举例来说，我在 2024 年 8 月上传了一张名为“xxx.jpg”的图片，按照如上的路径设置，它将会存储在如下位置：“桶名称/2024/08/”，而它的文件名就是“xxx.jpg”，即：原文件名+原拓展名。
+
+同理，我也可以换一种写法：
+
+`{year}/{month}/{fileName}/{md5}.{extName}`
+
+同样一张图片，在这样的文件路径下，会被上传到“桶名称/2024/08/xxx/”中，而图片本身会被重命名成“该图片对应的 md5 字符串.jpg”的形式。
+
+至此，图床的配置已经全部完成，后续，我们便可以通过 PicList 方便地上传、管理 Cloudflare 中的图片，快去试试吧！
+
+::: warning
+
+不知为何，目前 Cloudflare 在用户只有一个桶的时候，生成的 url 会省去桶名称，链接形式会变成：“自定义域名或 r2.dev url/设定的文件路径/文件名”，而 PicList 导出的链接形式为“自定义域名或 r2.dev url/桶名称/设定的文件路径/文件名”，无法正确引用，切记使用时需要手动删掉桶名称。
+
+:::
+
+## 参考文章
+
+[从 0 搭建你的免费图床（PicGo + Oracle cloud 甲骨文云对象存储）](https://blog.csdn.net/u010522887/article/details/141101468)
+
+[Typra + PicGo 图床 + Docsify + GitHub Pages，玩转个人知识库搭建，写给小白的建站入门课](https://blog.csdn.net/u010522887/article/details/140919939)
+
+[【白嫖 Cloudflare】之免费图床搭建：PicGo + Cloudflare R2，手把手教](https://blog.csdn.net/u010522887/article/details/141586984)
