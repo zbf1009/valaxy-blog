@@ -33,7 +33,7 @@ declare module 'vue-router/auto-routes' {
     '/posts/搭建一个属于你的免费图床（PicList+Cloudflare R2）': RouteRecordInfo<'/posts/搭建一个属于你的免费图床（PicList+Cloudflare R2）', '/posts/搭建一个属于你的免费图床（PicList+Cloudflare R2）', Record<never, never>, Record<never, never>>,
     '/posts/关于知识库，你应当了解的': RouteRecordInfo<'/posts/关于知识库，你应当了解的', '/posts/关于知识库，你应当了解的', Record<never, never>, Record<never, never>>,
     '/posts/艰难的第一步': RouteRecordInfo<'/posts/艰难的第一步', '/posts/艰难的第一步', Record<never, never>, Record<never, never>>,
-    '/posts/网络升级': RouteRecordInfo<'/posts/网络升级', '/posts/网络升级', Record<never, never>, Record<never, never>>,
+    '/posts/网站升级': RouteRecordInfo<'/posts/网站升级', '/posts/网站升级', Record<never, never>, Record<never, never>>,
     '/posts/scoop的安装与配置': RouteRecordInfo<'/posts/scoop的安装与配置', '/posts/scoop的安装与配置', Record<never, never>, Record<never, never>>,
     '/tags/': RouteRecordInfo<'/tags/', '/tags', Record<never, never>, Record<never, never>>,
     '/tags/[tag]/': RouteRecordInfo<'/tags/[tag]/', '/tags/:tag', { tag: ParamValue<true> }, { tag: ParamValue<false> }>,

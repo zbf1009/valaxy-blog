@@ -4,7 +4,7 @@
         <title>Kai ki's Blog</title>
         <link>https://www.031009.xyz/</link>
         <description>皮相癫狂，词句狼藉，学问钝愚，也尽清兴。</description>
-        <lastBuildDate>Fri, 27 Sep 2024 03:00:02 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 27 Sep 2024 05:21:50 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -14,6 +14,17 @@
         </image>
         <copyright>CC BY-NC-SA 4.0 2024 © kai ki</copyright>
         <atom:link href="https://www.031009.xyz/atom.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[网站升级]]></title>
+            <link>https://www.031009.xyz/posts/网站升级</link>
+            <guid>https://www.031009.xyz/posts/网站升级</guid>
+            <pubDate>Fri, 27 Sep 2024 03:24:06 GMT</pubDate>
+            <content:encoded><![CDATA[<p>先放成果，以后根据网络环境，可通过以下域名访问本站：</p>
+<p><a href="https://www.031009.xyz">https://www.031009.xyz</a> （vercel 部署，走 cloudflare CDN 的优选 ip，可国内直连，推荐使用）</p>
+<p><a href="https://blog1.031009.xyz">https://blog1.031009.xyz</a> （cloudflare pages 部署，镜像站，无线路优化，胜在稳定，仅做备用）</p>
+<p><a href="https://blog2.031009.xyz">https://blog2.031009.xyz</a> (Netlify 部署，镜像站，同上)</p>
+<br/><p>访问 <a href="https://www.031009.xyz/posts/网站升级" target="_blank">https://www.031009.xyz/posts/网站升级</a> 阅读全文。</p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[scoop的安装与配置]]></title>
             <link>https://www.031009.xyz/posts/scoop的安装与配置</link>
@@ -51,16 +62,6 @@
             <content:encoded><![CDATA[<p>本来用 github pages 已经把站搭起来了，又觉得国内访问太慢，打算挂个第三方的 DNS+CDN，然而穷学生考察一圈，发现只有 Cloudflare 这种国外平台提供的免费方案用得起，遂决定接入。</p>
 <p>然而，事情到这开始起了变化：</p>
 <br/><p>访问 <a href="https://www.031009.xyz/posts/艰难的第一步" target="_blank">https://www.031009.xyz/posts/艰难的第一步</a> 阅读全文。</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[网络升级]]></title>
-            <link>https://www.031009.xyz/posts/网络升级</link>
-            <guid>https://www.031009.xyz/posts/网络升级</guid>
-            <pubDate>Thu, 26 Sep 2024 13:45:39 GMT</pubDate>
-            <content:encoded><![CDATA[<p>先放成果，以后根据网络环境，可通过以下域名访问本站：<br>
-<a href="https://www.031009.xyz">https://www.031009.xyz</a> （Netlify 部署，走 cloudflare CDN 的优选 ip，可直连，推荐使用）<br>
-<a href="https://blog1.031009.xyz">https://blog1.031009.xyz</a> （cloudflare pages 部署，镜像站，无线路优化，胜在稳定，仅做备用）</p>
-<br/><p>访问 <a href="https://www.031009.xyz/posts/网络升级" target="_blank">https://www.031009.xyz/posts/网络升级</a> 阅读全文。</p>]]></content:encoded>
         </item>
     </channel>
 </rss>

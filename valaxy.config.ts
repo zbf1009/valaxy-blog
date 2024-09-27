@@ -18,7 +18,7 @@ export default defineValaxyConfig<ThemeConfig>({
   // 建站时间
   "since": 2016,
   // 标注博客信息(theme / valaxy)
-  "powered": false
+  "powered": true
 },
   "nav": [
     {

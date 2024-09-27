@@ -17,6 +17,7 @@ export default defineSiteConfig({
   mode: 'auto',
   // 站点标题
   title: 'Kai ki\'s Blog',
+  subtitle: '月の彼方で逢いましょう',
   // 作者信息
   author: {
     name: 'kai ki',
@@ -44,7 +45,7 @@ export default defineSiteConfig({
   //显示上次上传时间/最近编辑时间
   lastUpdated: true,
   //网站图标
-  favicon: '',
+  favicon: 'https://image.you-xuan.us.kg/2024/09/27/202409271610480.svg',
   //启用评论
   comment: {
     enable: true
@@ -152,53 +153,5 @@ export default defineSiteConfig({
   //限制代码块的高度，单位是 px
   codeHeightLimit: 300
 })
-
-
-
-/**
- * @zh 社交链接
- */
-export interface SocialLink {
-  /**
-   * The title of your link
-   */
-  name: string
-  link: string
-  /**
-   * 图标名称
-   * https://icones.js.org/
-   */
-  icon: string
-  /**
-   * @zh 图标颜色
-   */
-  color: string
-}
-
-
-// shared with valaxy node and client
-export interface SiteConfig {
-
-  /**
-   * 副标题
-   */
-  subtitle: string
-
-  feed: {
-    /**
-     * name: feed -> feed.xml / feed.atom / feed.json
-     * @default '' -> feed.xml / atom.xml / feed.json
-     */
-    name: string
-    favicon: string
-  }
-
-  /**
-   * 社交链接
-   */
-  social: SocialLink[]
-
-
-}
 
 
