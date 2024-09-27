@@ -75,9 +75,7 @@ export default defineSiteConfig({
     }
   },
   mediumZoom: {
-    /**
-     * @zh 启用图片预览
-     */
+    //启用图片预览
     enable: true
   },
   vanillaLazyload: {
@@ -148,7 +146,7 @@ export default defineSiteConfig({
      * name: feed -> feed.xml / feed.atom / feed.json
      * @default '' -> feed.xml / atom.xml / feed.json
      */
-    name: 'atom.xml',
+    name: 'atom',
     favicon: 'i-ri-rss-line'
   },
   //限制代码块的高度，单位是 px

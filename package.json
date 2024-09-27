@@ -12,6 +12,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^1.0.12",
     "furigana-markdown-it": "^1.0.3",
     "valaxy": "0.19.12",
     "valaxy-addon-meting": "^0.1.4",

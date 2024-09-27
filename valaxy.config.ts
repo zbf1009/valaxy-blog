@@ -2,6 +2,7 @@ import { defineValaxyConfig } from 'valaxy'
 import { addonMeting } from 'valaxy-addon-meting'
 import { addonWaline } from 'valaxy-addon-waline'
 import type { ThemeConfig } from 'valaxy-theme-hairy'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 /**
  * User Config

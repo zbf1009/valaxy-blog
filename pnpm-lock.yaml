@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@vercel/speed-insights':
+        specifier: ^1.0.12
+        version: 1.0.12(vue-router@4.4.5(vue@3.5.8(typescript@5.6.2)))(vue@3.5.8(typescript@5.6.2))
       furigana-markdown-it:
         specifier: ^1.0.3
         version: 1.0.3
@@ -921,6 +924,29 @@ packages:
 
   '@valaxyjs/utils@0.19.12':
     resolution: {integrity: sha512-A/i9WpzBB0IfiCg8zHcKxGJU+ZHT17hDvwR1nkofVVJU7wsFwTm7oK3CciEOxJ7VScYyT341n7e0of3WKHOvzA==}
+
+  '@vercel/speed-insights@1.0.12':
+    resolution: {integrity: sha512-ZGQ+a7bcfWJD2VYEp2R1LHvRAMyyaFBYytZXsfnbOMkeOvzGNVxUL7aVUvisIrTZjXTSsxG45DKX7yiw6nq2Jw==}
+    peerDependencies:
+      '@sveltejs/kit': ^1 || ^2
+      next: '>= 13'
+      react: ^18 || ^19
+      svelte: ^4
+      vue: ^3
+      vue-router: ^4
+    peerDependenciesMeta:
+      '@sveltejs/kit':
+        optional: true
+      next:
+        optional: true
+      react:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+      vue-router:
+        optional: true
 
   '@vitejs/plugin-vue@5.1.4':
     resolution: {integrity: sha512-N2XSI2n3sQqp5w7Y/AN/L2XDjBIRGqXko+eDp42sydYSBeJuSm5a1sLf8zakmo8u7tA8NmBgoDLA1HeOESjp9A==}
@@ -4075,6 +4101,11 @@ snapshots:
       - supports-color
 
   '@valaxyjs/utils@0.19.12': {}
+
+  '@vercel/speed-insights@1.0.12(vue-router@4.4.5(vue@3.5.8(typescript@5.6.2)))(vue@3.5.8(typescript@5.6.2))':
+    optionalDependencies:
+      vue: 3.5.8(typescript@5.6.2)
+      vue-router: 4.4.5(vue@3.5.8(typescript@5.6.2))
 
   '@vitejs/plugin-vue@5.1.4(vite@5.4.7(@types/node@22.7.0)(sass@1.79.3))(vue@3.5.8(typescript@5.6.2))':
     dependencies:

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Kai ki's Blog</title>
+        <link>https://www.031009.xyz/</link>
+        <description>皮相癫狂，词句狼藉，学问钝愚，也尽清兴。</description>
+        <lastBuildDate>Fri, 27 Sep 2024 03:00:02 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <image>
+            <title>Kai ki's Blog</title>
+            <url>https://image.you-xuan.us.kg/2024/09/25/202409251646848.jpg</url>
+            <link>https://www.031009.xyz/</link>
+        </image>
+        <copyright>CC BY-NC-SA 4.0 2024 © kai ki</copyright>
+        <atom:link href="https://www.031009.xyz/atom.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[scoop的安装与配置]]></title>
+            <link>https://www.031009.xyz/posts/scoop的安装与配置</link>
+            <guid>https://www.031009.xyz/posts/scoop的安装与配置</guid>
+            <pubDate>Thu, 26 Sep 2024 14:05:11 GMT</pubDate>
+            <content:encoded><![CDATA[<h2>为什么需要 scoop？</h2>
+<p>按照常理，一篇安利软件的文章，第一部分的标题应当是“XXX 是什么”，而不是“为什么”，但要说清楚<code>scoop</code>是什么，也就是一句话的事情：一款由<code>Luke Sampson</code> 开发的命令行下载安装工具，这就是它的全部，仅此而已。</p>
+<p>所以，真正关键的问题应该是：<strong>为什么在 2000 年后，我还需要一款简陋到连 GUI 界面都没有的命令行软件安装工具？</strong> 这才是我们需要首先说明的部分。</p>
+<br/><p>访问 <a href="https://www.031009.xyz/posts/scoop的安装与配置" target="_blank">https://www.031009.xyz/posts/scoop的安装与配置</a> 阅读全文。</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[关于知识库，你应当了解的]]></title>
+            <link>https://www.031009.xyz/posts/关于知识库，你应当了解的</link>
+            <guid>https://www.031009.xyz/posts/关于知识库，你应当了解的</guid>
+            <pubDate>Thu, 26 Sep 2024 14:01:17 GMT</pubDate>
+            <content:encoded><![CDATA[<h2>为什么你需要一个自己的知识库？</h2>
+<p>不知你有没有过这样的感觉——离开了学生时代以考试为主的评价体系后，自己的记性，好像不知不觉变差了？</p>
+<br/><p>访问 <a href="https://www.031009.xyz/posts/关于知识库，你应当了解的" target="_blank">https://www.031009.xyz/posts/关于知识库，你应当了解的</a> 阅读全文。</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[搭建一个属于你的免费图床（PicList+Cloudflare R2）]]></title>
+            <link>https://www.031009.xyz/posts/搭建一个属于你的免费图床（PicList+Cloudflare R2）</link>
+            <guid>https://www.031009.xyz/posts/搭建一个属于你的免费图床（PicList+Cloudflare R2）</guid>
+            <pubDate>Thu, 26 Sep 2024 13:59:26 GMT</pubDate>
+            <content:encoded><![CDATA[<h2>我为什么需要一个图床？</h2>
+<p>众所周知，要部署一个像样的个人博客，除了页面的样式设计、功能设计外，最大的问题可能来自内容存储，而在不同形式的文件中，图片/多媒体的存储和调用恐怕是最令人头疼的。</p>
+<p>最初建站时，代码和文字部分我都放在 github 仓库托管，但个人仓库的最大容量只有 1G，用来储存文字内容还堪堪够用，但要是连图片也一股脑放进去，恐怕是维持不了多久。更何况，在国内环境，github 的内容加载速度在没有 CDN 加速的情况下实在是感人，综合考虑这两点后，我很快就决定自己动手，搭建更适合自己的图床。</p>
+<br/><p>访问 <a href="https://www.031009.xyz/posts/搭建一个属于你的免费图床（PicList+Cloudflare R2）" target="_blank">https://www.031009.xyz/posts/搭建一个属于你的免费图床（PicList+Cloudflare R2）</a> 阅读全文。</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[艰难的第一步]]></title>
+            <link>https://www.031009.xyz/posts/艰难的第一步</link>
+            <guid>https://www.031009.xyz/posts/艰难的第一步</guid>
+            <pubDate>Thu, 26 Sep 2024 13:45:45 GMT</pubDate>
+            <content:encoded><![CDATA[<p>本来用 github pages 已经把站搭起来了，又觉得国内访问太慢，打算挂个第三方的 DNS+CDN，然而穷学生考察一圈，发现只有 Cloudflare 这种国外平台提供的免费方案用得起，遂决定接入。</p>
+<p>然而，事情到这开始起了变化：</p>
+<br/><p>访问 <a href="https://www.031009.xyz/posts/艰难的第一步" target="_blank">https://www.031009.xyz/posts/艰难的第一步</a> 阅读全文。</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[网络升级]]></title>
+            <link>https://www.031009.xyz/posts/网络升级</link>
+            <guid>https://www.031009.xyz/posts/网络升级</guid>
+            <pubDate>Thu, 26 Sep 2024 13:45:39 GMT</pubDate>
+            <content:encoded><![CDATA[<p>先放成果，以后根据网络环境，可通过以下域名访问本站：<br>
+<a href="https://www.031009.xyz">https://www.031009.xyz</a> （Netlify 部署，走 cloudflare CDN 的优选 ip，可直连，推荐使用）<br>
+<a href="https://blog1.031009.xyz">https://blog1.031009.xyz</a> （cloudflare pages 部署，镜像站，无线路优化，胜在稳定，仅做备用）</p>
+<br/><p>访问 <a href="https://www.031009.xyz/posts/网络升级" target="_blank">https://www.031009.xyz/posts/网络升级</a> 阅读全文。</p>]]></content:encoded>
+        </item>
+    </channel>
+</rss>
