@@ -15,7 +15,7 @@ export default defineSiteConfig({
   //亮暗模式
   mode: 'auto',
   // 站点标题
-  title: 'Kai ki\'s Blog',
+  title: 'Insight Arc.',
   subtitle: '月の彼方で逢いましょう',
   // 作者信息
   author: {
