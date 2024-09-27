@@ -12,7 +12,7 @@ export default defineSiteConfig({
   //可选语言
   languages: ['zh-CN', 'en'],
   //站点完整url
-  url: '',
+  url: 'https://www.031009.xyz',
   //亮暗模式
   mode: 'auto',
   // 站点标题

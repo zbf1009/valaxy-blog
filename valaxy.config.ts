@@ -52,16 +52,17 @@ export default defineValaxyConfig<ThemeConfig>({
         // 设置你的网易云/qq或其他歌单 ID
         id: '5312894314',
         type: 'playlist',
-        autoplay: true,
+        autoplay: false,
         theme: 'var(--hy-c-primary)',
       },
     }),
     // 请参考 https://waline.js.org/ 设置 serverURL 地址
     addonWaline({
       comment: true,
-      serverURL: '...',
-      emoji: [/*  */],
+      serverURL: 'https://vercel-waline-kappa.vercel.app/',
+      emoji: ['https://unpkg.com/@waline/emojis@1.2.0/tw-emoji','https://unpkg.com/@waline/emojis@1.2.0/bilibili'],
       pageview: true,
+      search: true,
     }),
   ],
 })
