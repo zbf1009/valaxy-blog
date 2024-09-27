@@ -51,9 +51,10 @@ export default defineValaxyConfig<ThemeConfig>({
       global: true,
       props: {
         // 设置你的网易云/qq或其他歌单 ID
-        id: '5312894314',
+        id: '8222158976',
+        server: 'netease',
         type: 'playlist',
-        autoplay: false,
+        autoplay: true,
         theme: 'var(--hy-c-primary)',
       },
     }),
