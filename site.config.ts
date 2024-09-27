@@ -137,7 +137,7 @@ export default defineSiteConfig({
   social: [
     {
       name: 'RSS',
-      link: '/atom.xml',
+      link: '/rss.xml',
       icon: 'i-ri-rss-line',
       color: 'orange',
     },
@@ -147,7 +147,7 @@ export default defineSiteConfig({
      * name: feed -> feed.xml / feed.atom / feed.json
      * @default '' -> feed.xml / atom.xml / feed.json
      */
-    name: 'atom',
+    name: 'rss',
     favicon: 'i-ri-rss-line'
   },
   //限制代码块的高度，单位是 px

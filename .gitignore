@@ -36,3 +36,12 @@ public/atom.atom
 
 # valaxy rss
 public/atom.json
+
+# valaxy rss
+public/rss.xml
+
+# valaxy rss
+public/rss.atom
+
+# valaxy rss
+public/rss.json
