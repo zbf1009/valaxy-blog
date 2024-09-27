@@ -14,13 +14,16 @@
   "dependencies": {
     "@vercel/speed-insights": "^1.0.12",
     "furigana-markdown-it": "^1.0.3",
+    "sakana-widget": "^2.7.0",
     "valaxy": "0.19.12",
+    "valaxy-addon-hitokoto": "^0.0.1",
     "valaxy-addon-meting": "^0.1.4",
     "valaxy-addon-waline": "^0.2.0",
     "valaxy-theme-hairy": "^1.2.7",
     "valaxy-theme-yun": "0.19.12"
   },
   "devDependencies": {
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "unplugin-vue-components": "^0.27.4"
   }
 }

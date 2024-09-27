@@ -27,20 +27,25 @@ export default defineValaxyConfig<ThemeConfig>({
       "icon": "ri:home-4-line"
     },
     {
-      "text": "categories",
+      "text": "Categories",
       "icon": "ri:folder-2-line",
       "link": "/categories/"
     },
     {
-      "text": "tags",
+      "text": "Timeline",
+      "icon": "i-ri:timeline-view",
+      "link": "/archives/"
+    },
+    {
+      "text": "Tags",
       "icon": "ri:price-tag-3-line",
       "link": "/tags/"
     },
     {
-      "text": "about",
+      "text": "About",
       "icon": "i-ri:user-line",
       "link": "/about/"
-    }
+    },
   ]
 
   },
@@ -57,7 +62,7 @@ export default defineValaxyConfig<ThemeConfig>({
         theme: 'var(--hy-c-primary)',
       },
       options: {
-        animationIn: true,
+        animationIn: false,
         autoHidden: false,
         lyricHidden: false,
       }

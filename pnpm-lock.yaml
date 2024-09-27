@@ -14,9 +14,15 @@ importers:
       furigana-markdown-it:
         specifier: ^1.0.3
         version: 1.0.3
+      sakana-widget:
+        specifier: ^2.7.0
+        version: 2.7.0
       valaxy:
         specifier: 0.19.12
         version: 0.19.12(@babel/parser@7.25.6)(@types/markdown-it@14.1.2)(@types/node@22.7.0)(async-validator@4.2.5)(axios@1.7.7)(postcss@8.4.47)(rollup@4.22.4)(typescript@5.6.2)
+      valaxy-addon-hitokoto:
+        specifier: ^0.0.1
+        version: 0.0.1
       valaxy-addon-meting:
         specifier: ^0.1.4
         version: 0.1.4
@@ -33,6 +39,9 @@ importers:
       typescript:
         specifier: ^5.6.2
         version: 5.6.2
+      unplugin-vue-components:
+        specifier: ^0.27.4
+        version: 0.27.4(@babel/parser@7.25.6)(rollup@4.22.4)(vue@3.5.8(typescript@5.6.2))
 
 packages:
 
@@ -615,6 +624,9 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@juggle/resize-observer@3.4.0':
+    resolution: {integrity: sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==}
 
   '@mdit-vue/plugin-component@2.1.3':
     resolution: {integrity: sha512-9AG17beCgpEw/4ldo/M6Y/1Rh4E1bqMmr/rCkWKmCAxy9tJz3lzY7HQJanyHMJufwsb3WL5Lp7Om/aPcQTZ9SA==}
@@ -2615,6 +2627,9 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
+  sakana-widget@2.7.0:
+    resolution: {integrity: sha512-rxS4usEA2ZCIlgSIacITEsSF1htLPaaczrKKtBH78p6qKmtll4Bsmx+4cqfTsTi3GAxdIqF71DslZtVWxo6rpw==}
+
   sass@1.79.3:
     resolution: {integrity: sha512-m7dZxh0W9EZ3cw50Me5GOuYm/tVAJAn91SUnohLRo9cXBixGUOdvmryN+dXpwR831bhoY3Zv7rEFt85PUwTmzA==}
     engines: {node: '>=14.0.0'}
@@ -2931,6 +2946,9 @@ packages:
   uuid@9.0.1:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
     hasBin: true
+
+  valaxy-addon-hitokoto@0.0.1:
+    resolution: {integrity: sha512-N+1dl3gwxeoTraT+r7gvNfTUHIjapBNHXj/urILdKQFfji++s7ELqeCNoyyOLUpvLJJOPSfObkJ9MKDsfCm8FA==}
 
   valaxy-addon-meting@0.1.4:
     resolution: {integrity: sha512-aTOCswBIg1/MOIC1vZ7ctaZOOEueVN99tEurAxukq15kJtqyps2/XqZw7Bjvik5LNbHtZd+TzmH+vrvhA/HF5w==}
@@ -3716,6 +3734,8 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@juggle/resize-observer@3.4.0': {}
 
   '@mdit-vue/plugin-component@2.1.3':
     dependencies:
@@ -5905,6 +5925,11 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
+  sakana-widget@2.7.0:
+    dependencies:
+      '@juggle/resize-observer': 3.4.0
+      tslib: 2.7.0
+
   sass@1.79.3:
     dependencies:
       chokidar: 4.0.1
@@ -6257,6 +6282,8 @@ snapshots:
       requires-port: 1.0.0
 
   uuid@9.0.1: {}
+
+  valaxy-addon-hitokoto@0.0.1: {}
 
   valaxy-addon-meting@0.1.4: {}
 
