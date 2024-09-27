@@ -1,6 +1,5 @@
 // site.config.ts
 import { defineSiteConfig } from 'valaxy';
-
 const furigana = require("furigana-markdown-it")();
 const md = require("markdown-it")().use(furigana);
 const html = md.render("[猫]{ねこ}");
