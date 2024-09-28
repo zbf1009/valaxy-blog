@@ -78,8 +78,8 @@ export default defineValaxyConfig<ThemeConfig>({
     }),
     addonComponents(),
     addonHitokoto({
-      args: [HitokotoType.Animation,HitokotoType.Comic,HitokotoType.Game,HitokotoType.Literature,HitokotoType.Philosophy],
-      api: 'https://v1.hitokoto.cn/?c=a&b&c&d&k=c'
+      args: [HitokotoType.Animation,HitokotoType.Comic,HitokotoType.Literature,HitokotoType.Philosophy],
+      api: 'https://v1.hitokoto.cn/?c=a&b&d&k=c'
     })
   ],
 })
