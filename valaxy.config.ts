@@ -2,8 +2,9 @@ import { defineValaxyConfig } from 'valaxy'
 import { addonMeting } from 'valaxy-addon-meting'
 import { addonWaline } from 'valaxy-addon-waline'
 import type { ThemeConfig } from 'valaxy-theme-hairy'
+import { addonComponents } from 'valaxy-addon-components'
+import { HitokotoType, addonHitokoto } from 'valaxy-addon-hitokoto'
 import { SpeedInsights } from "@vercel/speed-insights/next"
-
 
 /**
  * User Config
@@ -75,6 +76,11 @@ export default defineValaxyConfig<ThemeConfig>({
       pageview: true,
       search: true,
     }),
+    addonComponents(),
+    addonHitokoto({
+      args: [HitokotoType.Animation,HitokotoType.Comic,HitokotoType.Game,HitokotoType.Literature,HitokotoType.Philosophy],
+      api: 'https://v1.hitokoto.cn/?c=a&b&c&d&k=c'
+    })
   ],
 })
 

@@ -1,6 +1,8 @@
 <script lang="ts" setup>
-import { useSiteConfig } from 'valaxy'
+import { useSiteConfig } from 'valaxy';
+import { useAddonHitokoto } from 'valaxy-addon-hitokoto';
 const config = useSiteConfig()
+const { hitokoto } = useAddonHitokoto()
 </script>
 
 <template>
@@ -13,7 +15,7 @@ const config = useSiteConfig()
     <HairyHeader
       :headline="config.title"
       :title="config.subtitle"
-      :description="`how are you doing?`"
+      :description="`${hitokoto.hitokoto}——${hitokoto.from}`"
     />
     <HairyBody :comment="false">
       <HairyPosts updated pagination :cur-page="parseInt(String($route.params.page || 1))" />
