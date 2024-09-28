@@ -117,10 +117,12 @@ export default defineSiteConfig({
  //打赏/赞助
   sponsor: {
     enable: true,
+    title: '打赏',
+    description: 'Buy me a cup of coffee.',
     methods: [
       {
         name: '支付宝',
-        url: 'https://image.you-xuan.us.kg/2024/08/27/202408271858930.jpg',
+        url: 'https://image.you-xuan.us.kg/2024/09/28/202409281811944.png',
         color: '#00A3EE',
         icon: 'i-ri-alipay-line',
       },
@@ -128,7 +130,7 @@ export default defineSiteConfig({
         name: '微信支付',
         url: 'https://image.you-xuan.us.kg/2024/08/27.png',
         color: '#2DC100',
-        icon: 'ri:wechat-pay-line',
+        icon: 'i-ri:wechat-pay-line',
       },
     ],
   },
