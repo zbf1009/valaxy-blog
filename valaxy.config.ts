@@ -4,7 +4,6 @@ import { addonWaline } from 'valaxy-addon-waline'
 import type { ThemeConfig } from 'valaxy-theme-hairy'
 import { addonComponents } from 'valaxy-addon-components'
 import { HitokotoType, addonHitokoto } from 'valaxy-addon-hitokoto'
-import '@waline/client/meta';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 /**
