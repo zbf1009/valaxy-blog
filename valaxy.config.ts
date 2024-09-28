@@ -4,6 +4,7 @@ import { addonWaline } from 'valaxy-addon-waline'
 import type { ThemeConfig } from 'valaxy-theme-hairy'
 import { addonComponents } from 'valaxy-addon-components'
 import { HitokotoType, addonHitokoto } from 'valaxy-addon-hitokoto'
+import '@waline/client/meta';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 /**
@@ -78,8 +79,8 @@ export default defineValaxyConfig<ThemeConfig>({
     }),
     addonComponents(),
     addonHitokoto({
-      args: [HitokotoType.Animation,HitokotoType.Comic,HitokotoType.Literature,HitokotoType.Philosophy],
-      api: 'https://v1.hitokoto.cn/?c=a&b&d&k=c'
+      args: [HitokotoType.Animation,HitokotoType.Comic,HitokotoType.Literature],
+      api: 'https://v1.hitokoto.cn/?c=a&b&d=c'
     })
   ],
 })
