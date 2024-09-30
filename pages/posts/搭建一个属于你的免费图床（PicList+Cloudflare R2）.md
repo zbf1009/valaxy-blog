@@ -66,16 +66,7 @@ excerpt_type: text
 
 打开[Cloudflare 官方网站](https://www.cloudflare.com/zh-cn/developer-platform/r2/)，注册登录后，你应当能够看到如下界面：
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
-    src="https://image.you-xuan.us.kg/2024/08/28/202408281150987.png" width="100%" >
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">左侧写明了免费存储规格，右侧是绑卡页面</div>
-</center>
+![配图](https://image.you-xuan.us.kg/2024/08/28/202408281150987.png "左侧写明了免费存储规格，右侧是绑卡页面")
 
 上图中的 A 类即代表上传等操作，B 类代表下载、访问等操作，“10GB/月免费”是指：**每个月都在 10G 内享有免费存储，即相当于永久 10G 免费空间。**
 
@@ -84,60 +75,24 @@ excerpt_type: text
 信用卡绑定成功后，左侧会出现“创建存储桶”的选项。
 对于国内访问数据居多的使用场景，可以把桶放在亚太地区，下方点击“创建存储桶”即可。
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
-    src="https://image.you-xuan.us.kg/2024/08/28/202408281607397.png" width="100%" >
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">创建存储桶</div>
-</center>
+![配图](https://image.you-xuan.us.kg/2024/08/28/202408281607397.png "创建存储桶")
 
 桶创建成功后，我们的图床其实就已搭好了框架，可以直接从本地上传文件，至此，你完全可以把它当做一个小一号的网盘使用。
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
-    src="https://image.you-xuan.us.kg/2024/08/28/202408281614515.png" width="100%" >
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">一个“崭新的”存储桶</div>
-</center>
+![配图](https://image.you-xuan.us.kg/2024/08/28/202408281614515.png "一个“崭新的”存储桶")
 
 #### 配置访问链接
 
 然而，不要忘记，我们要搭的毕竟是个图床，不是网盘，接下来，我们要让其中的文件能够方便地通过链接从公网直接访问，让它变成真正意义上的图床。
 首先，我们在主页点击创建的桶，来到桶的主页，在上方 Tab 页中点击“设置”页，下滑，找到“公开访问”相关配置：
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
-    src="https://image.you-xuan.us.kg/2024/08/28/202408281626202.png" width="100%" >
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">Cloudflare支持的两种公开访问模式</div>
-</center>
+![配图](https://image.you-xuan.us.kg/2024/08/28/202408281626202.png "Cloudflare支持的两种公开访问模式")
 
 如果你有自己的域名，那么先把自己的域名在 Cloudflare 的解析服务中解析，用给出的链接填在“自定义域”中，点击“连接域”，即可通过你自己的域名访问该图床。当然，如果你没有，Cloudflare 也提供自己的子域域名，只不过功能受限，速度受限，然而对于图床，这已经完全够用了。
 
 开启 R2.dev 子域后，下方即会出现一个相应的存储桶 URL，此时，在该桶中上传文件，便会生成相应的文件访问 URL，其格式为：R2.dev 子域 URL+桶内文件夹层级+文件名。
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
-    src="https://image.you-xuan.us.kg/2024/08/28/202408281641586.png" width="100%" >
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">桶内图片的URL</div>
-</center>
+![配图](https://image.you-xuan.us.kg/2024/08/28/202408281641586.png "桶内图片的URL")
 
 到这里，一个像模像样的图床基本已经成型了，然而，不知你发现没有，我们还有一个重要问题没有解决——**难道，我们只能这样打开浏览器一张一张上传图片？** 当然不是。对于开发者而言，为了效率，这样的大量重复操作必须得有一个批量的、本地化的解决办法，而 Cloudflare 接入的 Amazon 的 S3 API 就给了我们这样一个解决办法，接下来，我们看看如何通过调用 S3 API 进行上传下载，并通过 PicList 接入该 API 实现一站式、本地化的图床图片管理。
 
@@ -145,29 +100,11 @@ excerpt_type: text
 
 要使用 S3 API，我们首先要获取用于身份验证的 AccessKeyId 和 SecretAccessKey，此时只需回到我们的仪表盘主页，在右侧点击“创建 API 令牌”，在令牌页面输入令牌名称，指定令牌的权限即可。需要注意的是，此处我们需要的令牌权限必须包含“读”和“写”双向权限（如下图所示），这样才能在通过令牌验证后实现存入图片和读取图片
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
-    src="https://image.you-xuan.us.kg/2024/08/28/202408281700506.png" width="100%" >
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">指定令牌权限</div>
-</center>
+![配图](https://image.you-xuan.us.kg/2024/08/28/202408281700506.png "指定令牌权限")
 
 令牌创建成功后，下方即有 S3 API 需要的信息：
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
-    src="https://image.you-xuan.us.kg/2024/08/28/202408281710556.png" width="100%" >
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">S3 API凭据</div>
-</center>
+![配图](https://image.you-xuan.us.kg/2024/08/28/202408281710556.png "S3 API凭据")
 
 到这里，我们共获取了四条需要用到的关键凭据，分别是：自定义域名/公共 R2.dev 存储桶 URL（后面用到）、访问秘钥 ID（对应 AccessKeyId）、机密访问秘钥（对应 SecretAccessKey），以及终结点/endpoint（后面用到），接下来开始的就是本地工作了。
 
@@ -247,16 +184,7 @@ if response['ResponseMetadata']['HTTPStatusCode'] == 200:
 
 上传成功后，我们在桶主页就可以看到图片的详细信息和其对应的链接——大功告成！
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
-    src="https://image.you-xuan.us.kg/2024/08/28/202408281759398.png" width="100%" >
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">一键复制即可使用</div>
-</center>
+![配图](https://image.you-xuan.us.kg/2024/08/28/202408281759398.png "一键复制即可使用")
 
 ### PicList 图床配置
 
@@ -270,41 +198,15 @@ scoop install lemon/piclist
 
 或者打开[PicList 官方网站](https://piclist.cn/)，下载安装软件，打开后，可以看到，其已经内置支持了不少图床：
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
-    src="https://image.you-xuan.us.kg/2024/08/28/202408281813957.png" width="100%" >
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">内置图床</div>
-</center>
+![配图](https://image.you-xuan.us.kg/2024/08/28/202408281813957.png "内置图床")
 
 但是……好像就是没有我们用的 cloudflare R2？别急，移步左侧的“插件”选项，搜索“s3”，安装第一个插件即可。
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
-    src="https://image.you-xuan.us.kg/2024/08/28/202408281820724.png" width="100%" >
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">S3插件</div>
-</center>
+![配图](https://image.you-xuan.us.kg/2024/08/28/202408281820724.png "S3插件")
+
 安装好后，来到“图床”选项的“Amazon S3”，新建配置，按要求填入指定的参数。
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
-    src="https://image.you-xuan.us.kg/2024/08/28/202408281825178.png" width="100%" >
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">空白配置页</div>
-</center>
+![配图](https://image.you-xuan.us.kg/2024/08/28/202408281825178.png "空白配置页")
 
 各项配置说明如下：
 
@@ -325,16 +227,7 @@ scoop install lemon/piclist
 
 该设置支持几个有固定含义的 payload 选项（如下所列），这些选项用于规定文件的上传路径和命名规则，而我们需要做的，就是根据需要进行恰当组合。
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
-    src="https://image.you-xuan.us.kg/2024/08/28/202408281844639.png" width="100%" >
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">各项payload及其含义</div>
-</center>
+![配图](https://image.you-xuan.us.kg/2024/08/28/202408281844639.png "各项payload及其含义")
 
 根据上图所列，文件路径可以写成这样：
 
