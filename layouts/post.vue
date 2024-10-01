@@ -68,7 +68,7 @@ function displayTag(tag: string) {
   background-size: 20px 20px;
   color: #333;
   line-height: 1.6;
-  box-shadow: 0 0 20px 15px #fafafa inset;
+  box-shadow: 0 0 1.25vw 0.94vw #fafafa inset;
 }
 .dark{
   .main{
@@ -81,7 +81,7 @@ function displayTag(tag: string) {
       linear-gradient(0deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
       linear-gradient(0deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
     background-size: 20px 20px;
-    box-shadow: 0 0 20px 15px #1a1a1d inset;
+    box-shadow: 0 0 1.25vw 0.94vw #1a1a1d inset;
   }
 }
 </style>
