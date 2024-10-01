@@ -54,12 +54,12 @@ export default defineValaxyConfig<ThemeConfig>({
 
   addons: [
     addonMeting({
-      global: true,
+      global: false,
       props: {
         // 设置你的网易云/qq或其他歌单 ID
         id: '8222158976',
         type: 'playlist',
-        autoplay: true,
+        autoplay: false,
         theme: 'var(--hy-c-primary)',
       },
       options: {
