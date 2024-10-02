@@ -33,6 +33,7 @@ declare module 'vue-router/auto-routes' {
     '/posts/Build-your-own-free-figure-bed-(PicList+Cloudflare R2)': RouteRecordInfo<'/posts/Build-your-own-free-figure-bed-(PicList+Cloudflare R2)', '/posts/Build-your-own-free-figure-bed-(PicList+Cloudflare R2)', Record<never, never>, Record<never, never>>,
     '/posts/Installation-and-configuration-of-scoop': RouteRecordInfo<'/posts/Installation-and-configuration-of-scoop', '/posts/Installation-and-configuration-of-scoop', Record<never, never>, Record<never, never>>,
     '/posts/network-upgrade': RouteRecordInfo<'/posts/network-upgrade', '/posts/network-upgrade', Record<never, never>, Record<never, never>>,
+    '/posts/System-beautification-1': RouteRecordInfo<'/posts/System-beautification-1', '/posts/System-beautification-1', Record<never, never>, Record<never, never>>,
     '/posts/Tough-first-step.': RouteRecordInfo<'/posts/Tough-first-step.', '/posts/Tough-first-step/', Record<never, never>, Record<never, never>>,
     '/posts/What-you-should-know-about-the-knowledge-base': RouteRecordInfo<'/posts/What-you-should-know-about-the-knowledge-base', '/posts/What-you-should-know-about-the-knowledge-base', Record<never, never>, Record<never, never>>,
     '/tags/': RouteRecordInfo<'/tags/', '/tags', Record<never, never>, Record<never, never>>,
