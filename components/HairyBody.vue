@@ -47,31 +47,4 @@ withDefaults(
     background: transparent;
   }
 }
-
-.HairyBodyBackground-post {
-  background: #f8f8f8;
-  background-image:
-    linear-gradient(90deg, rgba(200, 200, 200, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(200, 200, 200, 0.1) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(200, 200, 200, 0.1) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(200, 200, 200, 0.1) 1px, transparent 1px);
-  background-size: 20px 20px;
-  color: #333;
-  line-height: 1.6;
-  box-shadow: 0 0 20px 15px #fafafa inset;
-}
-.dark{
-  .HairyBodyBackground-post{
-    background: #333;
-    color: #ccc;
-    line-height: 1.6;
-    background-image:
-      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-      linear-gradient(0deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-      linear-gradient(0deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
-    box-shadow: 0 0 20px 15px #1a1a1d inset;
-  }
-}
 </style>

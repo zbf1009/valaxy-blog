@@ -59,27 +59,19 @@ function displayTag(tag: string) {
 <style lang="scss" scoped>
 
 .main {
-  background: #f8f8f8;
+  background: #eeeeee;
   background-image:
-    linear-gradient(90deg, rgba(200, 200, 200, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(200, 200, 200, 0.1) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(200, 200, 200, 0.1) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(200, 200, 200, 0.1) 1px, transparent 1px);
+    linear-gradient(90deg, #e7e7e7 3%, transparent 0),
+    linear-gradient(#e7e7e7 3%, transparent 0);
   background-size: 20px 20px;
-  color: #333;
-  line-height: 1.6;
   box-shadow: 0 0 1.25vw 0.94vw #fafafa inset;
 }
 .dark{
   .main{
-    background: #333;
-    color: #ccc;
-    line-height: 1.6;
+    background: #202020;
     background-image:
-      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-      linear-gradient(0deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-      linear-gradient(0deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+      linear-gradient(90deg, #2f2f2f 3%, transparent 0),
+      linear-gradient( #2f2f2f 3%, transparent 0);
     background-size: 20px 20px;
     box-shadow: 0 0 1.25vw 0.94vw #1a1a1d inset;
   }
