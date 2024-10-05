@@ -1,7 +1,8 @@
 // site.config.ts
 import { defineSiteConfig } from 'valaxy';
-const furigana = require("furigana-markdown-it")();
-const md = require("markdown-it")().use(furigana);
+var md = require('markdown-it')()
+            .use(require("furigana-markdown-it"));
+
 const html = md.render("[猫]{ねこ}");
 // html == <p><ruby>猫<rp>【</rp><rt>ねこ</rt><rp>】</rp></ruby></p>
 
@@ -52,7 +53,8 @@ export default defineSiteConfig({
   //第三方CDN挂载
   //@default 'https://unpkg.com/'
   cdn: {
-    prefix: ''
+    prefix:
+      'https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js'
   },
   // 字数统计
   statistics: {

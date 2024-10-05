@@ -14,6 +14,15 @@ importers:
       furigana-markdown-it:
         specifier: ^1.0.3
         version: 1.0.3
+      markdown-it-checkbox:
+        specifier: ^1.1.0
+        version: 1.1.0
+      markdown-it-collapsible:
+        specifier: ^2.0.2
+        version: 2.0.2(markdown-it@14.1.0)
+      markdown-it-mark:
+        specifier: ^4.0.0
+        version: 4.0.0
       sakana-widget:
         specifier: ^2.7.0
         version: 2.7.0
@@ -26,9 +35,6 @@ importers:
       valaxy-addon-hitokoto:
         specifier: ^0.0.1
         version: 0.0.1
-      valaxy-addon-meting:
-        specifier: ^0.1.4
-        version: 0.1.4
       valaxy-addon-waline:
         specifier: ^0.2.0
         version: 0.2.0(typescript@5.6.2)(valaxy@0.19.12(@babel/parser@7.25.6)(@types/markdown-it@14.1.2)(@types/node@22.7.3)(async-validator@4.2.5)(axios@1.7.7)(postcss@8.4.47)(rollup@4.22.5)(stylus@0.54.8)(typescript@5.6.2))
@@ -2261,6 +2267,14 @@ packages:
     peerDependencies:
       markdown-it: '>= 9.0.0'
 
+  markdown-it-checkbox@1.1.0:
+    resolution: {integrity: sha512-NkZVjnXo5G+cLNdi7DPZxICypBuxFE9F8sx3YGMZn+Cfizr8EZ/1TFUKl7ZnefF6cr1aFHbnQ5iA3rc4cp7EyA==}
+
+  markdown-it-collapsible@2.0.2:
+    resolution: {integrity: sha512-rDOBBCVogON8pRsitSamyR/eIgfPqcjyraLGLJ+5AY/2xfN5iHtqX4+Bo9zABdVSltbVPn2PI+3PRBWlRCWS7w==}
+    peerDependencies:
+      markdown-it: '>=5'
+
   markdown-it-container@4.0.0:
     resolution: {integrity: sha512-HaNccxUH0l7BNGYbFbjmGpf5aLHAMTinqRZQAEQbMr2cdD3z91Q6kIo1oUn1CQndkT03jat6ckrdRYuwwqLlQw==}
 
@@ -2275,6 +2289,9 @@ packages:
     engines: {node: '>=12.0.0'}
     peerDependencies:
       markdown-it: '*'
+
+  markdown-it-mark@4.0.0:
+    resolution: {integrity: sha512-YLhzaOsU9THO/cal0lUjfMjrqSMPjjyjChYM7oyj4DnyaXEzA8gnW6cVJeyCrCVeyesrY2PlEdUYJSPFYL4Nkg==}
 
   markdown-it-table-of-contents@0.8.0:
     resolution: {integrity: sha512-ihgUROZLw4ZsojxXrNZJP+VxYL4yTino51TP7eVYccEwgsYGC6CNXxv5G5JI89NhUb52wiRaMhEtWpiMAeRirA==}
@@ -3043,9 +3060,6 @@ packages:
 
   valaxy-addon-hitokoto@0.0.1:
     resolution: {integrity: sha512-N+1dl3gwxeoTraT+r7gvNfTUHIjapBNHXj/urILdKQFfji++s7ELqeCNoyyOLUpvLJJOPSfObkJ9MKDsfCm8FA==}
-
-  valaxy-addon-meting@0.1.4:
-    resolution: {integrity: sha512-aTOCswBIg1/MOIC1vZ7ctaZOOEueVN99tEurAxukq15kJtqyps2/XqZw7Bjvik5LNbHtZd+TzmH+vrvhA/HF5w==}
 
   valaxy-addon-waline@0.2.0:
     resolution: {integrity: sha512-/aJ4XkMaKPVcZYdvzlJQVgbZ0KYZ24/BncJRmSdt33+rkRm8OeSvyQkwfXDnTJSyrbM3jL5qtLL9Bvl9JTHzTg==}
@@ -5673,6 +5687,14 @@ snapshots:
     dependencies:
       markdown-it: 14.1.0
 
+  markdown-it-checkbox@1.1.0:
+    dependencies:
+      underscore: 1.13.7
+
+  markdown-it-collapsible@2.0.2(markdown-it@14.1.0):
+    dependencies:
+      markdown-it: 14.1.0
+
   markdown-it-container@4.0.0: {}
 
   markdown-it-emoji@3.0.0: {}
@@ -5682,6 +5704,8 @@ snapshots:
   markdown-it-image-figures@2.1.1(markdown-it@14.1.0):
     dependencies:
       markdown-it: 14.1.0
+
+  markdown-it-mark@4.0.0: {}
 
   markdown-it-table-of-contents@0.8.0: {}
 
@@ -6492,8 +6516,6 @@ snapshots:
   valaxy-addon-components@0.0.4: {}
 
   valaxy-addon-hitokoto@0.0.1: {}
-
-  valaxy-addon-meting@0.1.4: {}
 
   valaxy-addon-waline@0.2.0(typescript@5.6.2)(valaxy@0.19.12(@babel/parser@7.25.6)(@types/markdown-it@14.1.2)(@types/node@22.7.3)(async-validator@4.2.5)(axios@1.7.7)(postcss@8.4.47)(rollup@4.22.5)(stylus@0.54.8)(typescript@5.6.2)):
     dependencies:

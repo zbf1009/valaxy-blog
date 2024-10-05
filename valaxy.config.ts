@@ -1,5 +1,4 @@
 import { defineValaxyConfig } from 'valaxy'
-import { addonMeting } from 'valaxy-addon-meting'
 import { addonWaline } from 'valaxy-addon-waline'
 import type { ThemeConfig } from 'valaxy-theme-hairy'
 import { addonComponents } from 'valaxy-addon-components'
@@ -53,21 +52,6 @@ export default defineValaxyConfig<ThemeConfig>({
 
 
   addons: [
-    addonMeting({
-      global: false,
-      props: {
-        // 设置你的网易云/qq或其他歌单 ID
-        id: '8222158976',
-        type: 'playlist',
-        autoplay: false,
-        theme: 'var(--hy-c-primary)',
-      },
-      options: {
-        animationIn: false,
-        autoHidden: false,
-        lyricHidden: false,
-      }
-    }),
     // 请参考 https://waline.js.org/ 设置 serverURL 地址
     addonWaline({
       comment: true,
