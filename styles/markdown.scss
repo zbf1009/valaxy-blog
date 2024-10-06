@@ -130,7 +130,8 @@ html.dark {
         left: 0;
         bottom: -30px;
         width: auto;
-        white-space: nowrap;
+        white-space: normal;
+        word-wrap: break-word;
 
         /* style tooltip */
         color: #fff;
