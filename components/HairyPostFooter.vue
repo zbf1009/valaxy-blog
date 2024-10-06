@@ -16,7 +16,7 @@ const url = useFullUrl()
 <template>
   <div class="yun-sponsor-container flex-center flex-col">
     <button
-      class="sponsor-button yun-icon-btn bg-light-1 dark:bg-transparent"
+      class="sponsor-button yun-icon-btn"
       :title="sponsorBtnTitle" text="red-400" @click="showQr = !showQr"
     >
       <div i-ri-heart-line  />
