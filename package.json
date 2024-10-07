@@ -30,6 +30,8 @@
   "devDependencies": {
     "@waline/client": "^3.3.2",
     "typescript": "^5.6.2",
-    "unplugin-vue-components": "^0.27.4"
+    "unplugin-vue-components": "^0.27.4",
+    "vite-plugin-font": "^2.1.7",
+    "vite-plugin-pwa": "^0.20.5"
   }
 }

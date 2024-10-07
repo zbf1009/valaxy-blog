@@ -50,7 +50,6 @@ export default defineValaxyConfig<ThemeConfig>({
   ]
   },
 
-
   addons: [
     // 请参考 https://waline.js.org/ 设置 serverURL 地址
     addonWaline({
