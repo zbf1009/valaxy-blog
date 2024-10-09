@@ -87,7 +87,7 @@ html.dark {
 
 //正文字重+字号
 .prose :where(p,ul,ol,pre):not(:where(.not-prose,.not-prose *)) {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 500;
 }
 
