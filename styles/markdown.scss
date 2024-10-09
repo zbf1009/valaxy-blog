@@ -91,11 +91,17 @@ html.dark {
     font-weight: 500;
 }
 
+.markdown-body .custom-block p {
+    margin: 8px 0;
+    line-height: 24px;
+    font-size: 1rem;
+}
+
 .prose :where(blockquote):not(:where(.not-prose, .not-prose *)) {
   background: rgba(200, 200, 200, 0.1);
   @apply py-1px;
   color: #999;
-  font-size: 15px;
+  font-size: 0.9375rem;
   >p {
     margin: 0.5rem 0;
   }
