@@ -28,8 +28,8 @@ html.dark {
   h4,
   h5,
   h6 {
-    font-family: var(--va-font-family-base);
-    font-weight: 900;
+    font-family: "Source Han Serif SC";
+    font-weight: 700;
   }
 
   ul {
@@ -83,6 +83,12 @@ html.dark {
 .prose :where(:not(pre) > code):not(:where(.not-prose, .not-prose *))::before,
 .prose :where(:not(pre) > code):not(:where(.not-prose, .not-prose *))::after {
   content: none !important;
+}
+
+//正文字重+字号
+.prose :where(p,ul,ol,pre):not(:where(.not-prose,.not-prose *)) {
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .prose :where(blockquote):not(:where(.not-prose, .not-prose *)) {
