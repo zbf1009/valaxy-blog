@@ -29,7 +29,10 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - name: 📦 Install Dependencies
-        run: yarn install
+        run: |
+          npm install -g pnpm
+          pnpm install
+        shell: bash
 
       - name: 🌌 Build Valaxy Blog
-        run: yarn run build
+        run: pnpm run build
