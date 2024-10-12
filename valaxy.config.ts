@@ -17,9 +17,14 @@ export default defineValaxyConfig<ThemeConfig>({
   },
   "footer": {
   // 建站时间
-  "since": 2016,
+  "since": 2024,
   // 标注博客信息(theme / valaxy)
-  "powered": true
+  "powered": true,
+  //备案信息
+  "beian": {
+    enable: true,
+    "icp": "鄂ICP备2024076488号-1",
+  },
 },
   "nav": [
     {

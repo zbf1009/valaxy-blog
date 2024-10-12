@@ -59,6 +59,13 @@ useScriptTag('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js')
       <div v-if="themeConfig.footer.powered" class="powered" m="2">
         <span v-html="poweredHtml" /> | <span>{{ t('footer.theme') }} - <a :href="themeConfig.pkg.homepage" :title="`valaxy-theme-${config.theme}`" target="_blank">{{ capitalize(config.theme) }}</a> v{{ themeConfig.pkg.version }}</span>
       </div>
+      <div>
+        <span> 由 </span>
+        <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" title="又拍云">
+          <img style="display: inline-block;" h="1.8rem" w="auto" m="b-2px l-1 r-2" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/logo/upyun-logo.png">
+        </a>
+        <span> 提供CDN加速 </span>
+      </div>
       <VCLiveTime mt="2" start-time="2024-08-23T00:00:00">
         <template #live-time-before>
           <span>本博客已挺过</span>
