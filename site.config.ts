@@ -54,7 +54,7 @@ export default defineSiteConfig({
   //@default 'https://unpkg.com/'
   cdn: {
     prefix:
-      'https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js'
+      ''
   },
   // 字数统计
   statistics: {
