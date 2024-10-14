@@ -25,24 +25,24 @@ watch(locale, () => {
 }, { immediate: true })
 
 /**
- * when the post is updated more than 180 days ago, show a warning
- * default 180 days, you can set `time_warning` in frontmatter to change it
+ * when the post is updated more than 30 days ago, show a warning
+ * default 30 days, you can set `time_warning` in frontmatter to change it
  */
 const time_warning = computed(() => {
   const thirtyDaysInMilliseconds = 30 * 24 * 60 * 60 * 1000;
   const diff = differenceInMilliseconds(new Date(), published.value)
-  /**
-   * if `time_warning` is a number, compare the time difference
-   * if `time_warning` is a boolean, show warning by flag
-   */
-  if (typeof fm.value.time_warning === 'boolean') {
-    // 如果是布尔值，检查是否发布超过30天
+
+  if (typeof fm.value.time_warning === 'boolean' && fm.value.time_warning) {
+    // 布尔值且为 true，使用默认的30天
     return diff >= thirtyDaysInMilliseconds;
   } else if (typeof fm.value.time_warning === 'number') {
-    // 如果是数字，与30天比较
-    return diff > thirtyDaysInMilliseconds;
+    // 数字类型，如果大于30天则使用该数字，否则使用默认的30天
+    const customDays = fm.value.time_warning;
+    const thresholdInMilliseconds = Math.max(thirtyDaysInMilliseconds, customDays * 24 * 60 * 60 * 1000);
+    return diff >= thresholdInMilliseconds;
   }
-  return false; // 默认不显示警告
+  // 其他所有情况，警告关闭
+  return false;
 })
 </script>
 
