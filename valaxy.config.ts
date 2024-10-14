@@ -63,6 +63,10 @@ export default defineValaxyConfig<ThemeConfig>({
       emoji: ['https://unpkg.com/@waline/emojis@1.2.0/tw-emoji','https://unpkg.com/@waline/emojis@1.2.0/bilibili','https://unpkg.com/@waline/emojis@1.2.0/bmoji','https://unpkg.com/@waline/emojis@1.2.0/qq','https://unpkg.com/@waline/emojis@1.2.0/tieba','https://unpkg.com/@waline/emojis@1.2.0/weibo'],
       pageview: true,
       search: true,
+      locale: {
+        placeholder: '欢迎评论！填写邮箱，在被回复时可收到邮件通知哦！(≧∇≦)ﾉ',
+        sofa: '没人？我来喵两句(=✪ᆽ✪=)'
+      }
     }),
     addonComponents(),
     addonHitokoto({
