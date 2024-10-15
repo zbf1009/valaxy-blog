@@ -12,7 +12,7 @@ html.dark {
   .markdown-body {
     --c-toc-link: var(--hy-c-text-dark);
     margin: 0;
-    padding: 1.25vw;
+    padding: 0.625vw;
   }
 }
 
@@ -20,7 +20,7 @@ html.dark {
   --un-prose-borders: var(--hy-c-primary);
   word-wrap: break-word;
   margin: 0;
-  padding: 1.25vw;
+  padding: 0.625vw;
 
   h1,
   h2,
@@ -126,7 +126,6 @@ html.dark {
         font-size: 0.8em;
         vertical-align: super; /* 使图标与文本基线对齐 */
         opacity: 1;
-        margin-inline-start: 0.3em; /* 与文本保持一定距离 */
     }
 
     abbr[data-title]:hover::before {

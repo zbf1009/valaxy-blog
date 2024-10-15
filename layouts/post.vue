@@ -4,13 +4,19 @@ import { useFrontmatter, useRuntimeConfig } from 'valaxy'
 import { useRouter } from 'vue-router'
 import { computed } from 'vue'
 
-defineProps<{
-  header?: {
-    title?: string
-    headline?: string
-    description?: string
-  }
-}>()
+withDefaults(
+  defineProps<{
+    header?: {
+      title?: string
+      headline?: string
+      description?: string
+    }
+    comment?: boolean
+  }>(),
+    {
+    comment: true,
+  },
+)
 
 const runtimeConfig = useRuntimeConfig()
 const addonWaline = computed(() => runtimeConfig.value.addons['valaxy-addon-waline'])
@@ -20,6 +26,7 @@ const post = useFrontmatter()
 function displayTag(tag: string) {
   router.push(`/tags/${tag}`)
 }
+
 </script>
 
 <template>
@@ -39,26 +46,36 @@ function displayTag(tag: string) {
         </div>
       </template>
     </HairyHeader>
-    <HairyBody>
-      <template #default>
-        <div class="main">
-          <HairyImageGlobal>
-            <router-view />
-          </HairyImageGlobal>
-          <HairyPostFooter v-if="addonWaline.options?.pageview" />
+    <div class="min-h-49vh relative z-5">
+      <div class="mx-auto container flex z-1 relative">
+        <div class="relative flex-1 pt-2 main post-main min-w-0">
+          <!-- 使用默认插槽的内容 -->
+          <div>
+            <HairyImageGlobal>
+              <router-view />
+            </HairyImageGlobal>
+            <HairyPostFooter v-if="addonWaline.options?.pageview" />
+          </div>
+          <HairyComment />
         </div>
-      </template>
-      <template #slide>
-        <HairyTabbar />
-      </template>
-    </HairyBody>
+        <div class="ml-4 w-60 lg:block hidden">
+          <div class="sticky top-3.125rem z-1">
+            <!-- 使用命名插槽 'slide' 的内容 -->
+            <div>
+              <HairyTabbar />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="HairyBodyBackground post-background" />
+    </div>
     <HairyFooter />
   </HairyContainer>
 </template>
 
 <style lang="scss" scoped>
-
-.main {
+/* 你的自定义样式 */
+.post-main {
   background: #eeeeee;
   background-image:
     linear-gradient(90deg, #e7e7e7 3%, transparent 0),
@@ -66,14 +83,18 @@ function displayTag(tag: string) {
   background-size: 20px 20px;
   box-shadow: 0 0 1.25vw 0.94vw #fafafa inset;
 }
-.dark{
-  .main{
-    background: #202020;
-    background-image:
-      linear-gradient(90deg, #2f2f2f 3%, transparent 0),
-      linear-gradient( #2f2f2f 3%, transparent 0);
-    background-size: 20px 20px;
-    box-shadow: 0 0 1.25vw 0.94vw #1a1a1d inset;
-  }
+
+.post-background {
+  @apply absolute top-0 max-h-150vh top-5 bottom-0 w-full;
+  opacity: 0;
+}
+
+.dark .post-main {
+  background: #202020;
+  background-image:
+    linear-gradient(90deg, #2f2f2f 3%, transparent 0),
+    linear-gradient(#2f2f2f 3%, transparent 0);
+  background-size: 20px 20px;
+  box-shadow: 0 0 1.25vw 0.94vw #1a1a1d inset;
 }
 </style>

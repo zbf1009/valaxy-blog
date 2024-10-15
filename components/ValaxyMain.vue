@@ -14,7 +14,7 @@ const siteConfig = useSiteConfig()
   <main>
     <div w="full" flex="~">
       <slot name="main">
-        <div class="content" flex="~ col grow" w="full" p="l-4 lt-md:0">
+        <div class="content" flex="~ col grow" w="full" >
           <slot name="main-header" />
           <slot name="main-header-after" />
 
