@@ -59,7 +59,7 @@ export default defineValaxyConfig<ThemeConfig>({
     // 请参考 https://waline.js.org/ 设置 serverURL 地址
     addonWaline({
       comment: true,
-      serverURL: 'https://vercel-waline-kappa.vercel.app/',
+      serverURL: 'https://comment.031009.xyz/',
       emoji: ['https://unpkg.com/@waline/emojis@1.2.0/tw-emoji','https://unpkg.com/@waline/emojis@1.2.0/bilibili','https://unpkg.com/@waline/emojis@1.2.0/bmoji','https://unpkg.com/@waline/emojis@1.2.0/qq','https://unpkg.com/@waline/emojis@1.2.0/tieba','https://unpkg.com/@waline/emojis@1.2.0/weibo'],
       pageview: true,
       search: true,
