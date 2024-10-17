@@ -22,7 +22,7 @@ export default defineValaxyConfig<ThemeConfig>({
   "powered": true,
   //备案信息
   "beian": {
-    enable: true,
+    enable: false,
     "icp": "鄂ICP备2024076488号-1",
   },
 },
