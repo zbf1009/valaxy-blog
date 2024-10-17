@@ -71,7 +71,6 @@ export default defineValaxyConfig<ThemeConfig>({
     addonComponents(),
     addonHitokoto({
       args: [HitokotoType.Animation,HitokotoType.Comic,HitokotoType.Literature],
-      api: 'https://v1.hitokoto.cn/?c=a&b&d=c'
     })
   ],
 })
