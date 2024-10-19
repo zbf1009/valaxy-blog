@@ -92,7 +92,7 @@ Cloudflare Workers 也需要绑定银行卡，只不过相比 DeepL，对国内�
 
 ![alt text](https://image.you-xuan.us.kg/2024/10/18/step6.png "猴子都能看懂的步骤6")
 
-回到我们 Cloudflare 的编辑器界面，现在，对着里面的内容，使用你键盘上高贵的`ctrl+A`、`delete`、`ctrl+C`，然后点击部署，恭喜！我们克服了重重困难！已经完成了最复杂的内容（笑）！
+回到我们 Cloudflare 的编辑器界面，现在，对着里面的内容，使用你键盘上高贵的`Ctrl+A`、`Delete`、`ctrl+V`，然后点击部署，恭喜！我们克服了重重困难！已经完成了最复杂的内容（笑）！
 
 然后，回到 Workers 列表，点击“访问”，现在，你可以在网址栏看到你的 API 调用地址，它应当类似如下形式：
 
@@ -165,3 +165,11 @@ print(tr_deeplx(text))
 临时的解决方法只能是在调用时适当限制并发数和频次，不过，比起优势，个人认为，这点问题是完全在可承受范围内的。
 
 :::
+
+## 参考文章
+
+[在沉浸式翻译中使用 DeepLX](https://eisuto.xlog.app/zai-chen-jin-shi-fan-yi-zhong-shi-yong-DeepLX?locale=zh)
+
+[DeepLX在沉浸式翻译和Bob翻译的使用及Cloudflare部署](https://kitety.com/article/deeplx-usage-and-deployment#4e0b922ee20f44c395a8a6b5031384b8)
+
+[【技巧】搭建一个自己的deepl翻译](https://blog.laomao.icu/posts/82f2c97d/)
