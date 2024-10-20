@@ -92,7 +92,7 @@ Cloudflare Workers 也需要绑定银行卡，只不过相比 DeepL，对国内�
 
 ![alt text](https://image.you-xuan.us.kg/2024/10/18/step6.png "猴子都能看懂的步骤6")
 
-回到我们 Cloudflare 的编辑器界面，现在，对着里面的内容，使用你键盘上高贵的`Ctrl+A`、`Delete`、`Ctrl+V`，然后点击部署，恭喜！我们克服了重重困难！已经完成了最复杂的内容（笑）！
+回到我们 Cloudflare 的编辑器界面，现在，对着里面的内容，使用你键盘上高贵的`Ctrl+A`、`Backspace`、`Ctrl+V`，然后点击部署，恭喜！我们克服了重重困难！已经完成了最复杂的内容（笑）！
 
 然后，回到 Workers 列表，点击“访问”，现在，你可以在网址栏看到你的 API 调用地址，它应当类似如下形式：
 
