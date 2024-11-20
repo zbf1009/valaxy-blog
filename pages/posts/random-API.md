@@ -49,7 +49,7 @@ excerpt_type: text
 
 事实上，如果在云存储平台绑定了域名，其中的所有的资源都会有一个唯一的访问链接，通过链接访问图片，就和通过域名访问服务器资源是一样的。**所以，如果我们只是通过接口，获得对应文件夹内所有图片的访问连接，再在收到调用请求时通过该链接返回图片，不就能避免对接口的高频调用了吗？**
 
-```mermaid
+```mermaid {align="center"}
 sequenceDiagram
   participant API服务器
   participant 图片库（又拍云存储）
