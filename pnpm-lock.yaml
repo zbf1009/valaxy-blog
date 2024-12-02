@@ -1005,20 +1005,20 @@ packages:
       vue-i18n:
         optional: true
 
-  '@intlify/core-base@10.0.4':
-    resolution: {integrity: sha512-GG428DkrrWCMhxRMRQZjuS7zmSUzarYcaHJqG9VB8dXAxw4iQDoKVQ7ChJRB6ZtsCsX3Jse1PEUlHrJiyQrOTg==}
+  '@intlify/core-base@10.0.5':
+    resolution: {integrity: sha512-F3snDTQs0MdvnnyzTDTVkOYVAZOE/MHwRvF7mn7Jw1yuih4NrFYLNYIymGlLmq4HU2iIdzYsZ7f47bOcwY73XQ==}
     engines: {node: '>= 16'}
 
-  '@intlify/message-compiler@10.0.4':
-    resolution: {integrity: sha512-AFbhEo10DP095/45EauinQJ5hJ3rJUmuuqltGguvc3WsvezZN+g8qNHLGWKu60FHQVizMrQY7VJ+zVlBXlQQkQ==}
+  '@intlify/message-compiler@10.0.5':
+    resolution: {integrity: sha512-6GT1BJ852gZ0gItNZN2krX5QAmea+cmdjMvsWohArAZ3GmHdnNANEcF9JjPXAMRtQ6Ux5E269ymamg/+WU6tQA==}
     engines: {node: '>= 16'}
 
   '@intlify/message-compiler@9.14.1':
     resolution: {integrity: sha512-MY8hwukJBnXvGAncVKlHsqKDQ5ZcQx4peqEmI8wBUTXn4pezrtTGYXNoz81cLyEEHB+L/zlKWVBSh5TiX4gYoQ==}
     engines: {node: '>= 16'}
 
-  '@intlify/shared@10.0.4':
-    resolution: {integrity: sha512-ukFn0I01HsSgr3VYhYcvkTCLS7rGa0gw4A4AMpcy/A9xx/zRJy7PS2BElMXLwUazVFMAr5zuiTk3MQeoeGXaJg==}
+  '@intlify/shared@10.0.5':
+    resolution: {integrity: sha512-bmsP4L2HqBF6i6uaMqJMcFBONVjKt+siGluRq4Ca4C0q7W2eMaVZr8iCgF9dKbcVXutftkC7D6z2SaSMmLiDyA==}
     engines: {node: '>= 16'}
 
   '@intlify/shared@9.13.1':
@@ -1119,28 +1119,24 @@ packages:
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
 
   '@napi-rs/woff-build-linux-arm64-musl@0.2.0':
     resolution: {integrity: sha512-ELzvhRLRQZiVVIo4pQIHjs42aCAQ/0B6PuVbo3nAWdef09i0L05xgOYoxnTICm/9ttHNSHSVV+1IKSVBmlZNgw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
 
   '@napi-rs/woff-build-linux-x64-gnu@0.2.0':
     resolution: {integrity: sha512-rTfnLP87A49SFY6JexfNurGl5ynvm9IeH0l2XgFKOqaiPijospOchDbl8aYR9niVzJoOXWLXxLqMM11lA37c1A==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
 
   '@napi-rs/woff-build-linux-x64-musl@0.2.0':
     resolution: {integrity: sha512-j4CJqFgtkff1tj7um8nxCPikthSjBrcGO3xJ7HQ/w00EcfOBDJMAW2/I2M/RGf1FNrgbQPDr+V0XqA8G0tRXSw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
 
   '@napi-rs/woff-build-wasm32-wasi@0.2.0':
     resolution: {integrity: sha512-iBOBkw7EvLW3XWP/z17+j9+KQhK0FSb77vE3AYnbPoagqLNcZjezoPo2wG6yQLAbDmage3iVTLbnRn1Rkrba5Q==}
@@ -1224,35 +1220,30 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm]
     os: [linux]
-    libc: [glibc]
 
   '@parcel/watcher-linux-arm64-glibc@2.4.1':
     resolution: {integrity: sha512-BJ7mH985OADVLpbrzCLgrJ3TOpiZggE9FMblfO65PlOCdG++xJpKUJ0Aol74ZUIYfb8WsRlUdgrZxKkz3zXWYA==}
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
 
   '@parcel/watcher-linux-arm64-musl@2.4.1':
     resolution: {integrity: sha512-p4Xb7JGq3MLgAfYhslU2SjoV9G0kI0Xry0kuxeG/41UfpjHGOhv7UoUDAz/jb1u2elbhazy4rRBL8PegPJFBhA==}
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
 
   '@parcel/watcher-linux-x64-glibc@2.4.1':
     resolution: {integrity: sha512-s9O3fByZ/2pyYDPoLM6zt92yu6P4E39a03zvO0qCHOTjxmt3GHRMLuRZEWhWLASTMSrrnVNWdVI/+pUElJBBBg==}
     engines: {node: '>= 10.0.0'}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
 
   '@parcel/watcher-linux-x64-musl@2.4.1':
     resolution: {integrity: sha512-L2nZTYR1myLNST0O632g0Dx9LyMNHrn6TOt76sYxWLdff3cB22/GZX2UPtJnaqQPdCRoszoY5rcOj4oMTtp5fQ==}
     engines: {node: '>= 10.0.0'}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
 
   '@parcel/watcher-win32-arm64@2.4.1':
     resolution: {integrity: sha512-Uq2BPp5GWhrq/lcuItCHoqxjULU1QYEcyjSO5jqqOK8RNFDBQnenMMx4gAl3v8GiWa59E9+uDM7yZ6LxwUIfRg==}
@@ -1356,55 +1347,46 @@ packages:
     resolution: {integrity: sha512-0KXvIJQMOImLCVCz9uvvdPgfyWo93aHHp8ui3FrtOP57svqrF/roSSR5pjqL2hcMp0ljeGlU4q9o/rQaAQ3AYA==}
     cpu: [arm]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-arm-musleabihf@4.24.0':
     resolution: {integrity: sha512-it2BW6kKFVh8xk/BnHfakEeoLPv8STIISekpoF+nBgWM4d55CZKc7T4Dx1pEbTnYm/xEKMgy1MNtYuoA8RFIWw==}
     cpu: [arm]
     os: [linux]
-    libc: [musl]
 
   '@rollup/rollup-linux-arm64-gnu@4.24.0':
     resolution: {integrity: sha512-i0xTLXjqap2eRfulFVlSnM5dEbTVque/3Pi4g2y7cxrs7+a9De42z4XxKLYJ7+OhE3IgxvfQM7vQc43bwTgPwA==}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-arm64-musl@4.24.0':
     resolution: {integrity: sha512-9E6MKUJhDuDh604Qco5yP/3qn3y7SLXYuiC0Rpr89aMScS2UAmK1wHP2b7KAa1nSjWJc/f/Lc0Wl1L47qjiyQw==}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
 
   '@rollup/rollup-linux-powerpc64le-gnu@4.24.0':
     resolution: {integrity: sha512-2XFFPJ2XMEiF5Zi2EBf4h73oR1V/lycirxZxHZNc93SqDN/IWhYYSYj8I9381ikUFXZrz2v7r2tOVk2NBwxrWw==}
     cpu: [ppc64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-riscv64-gnu@4.24.0':
     resolution: {integrity: sha512-M3Dg4hlwuntUCdzU7KjYqbbd+BLq3JMAOhCKdBE3TcMGMZbKkDdJ5ivNdehOssMCIokNHFOsv7DO4rlEOfyKpg==}
     cpu: [riscv64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-s390x-gnu@4.24.0':
     resolution: {integrity: sha512-mjBaoo4ocxJppTorZVKWFpy1bfFj9FeCMJqzlMQGjpNPY9JwQi7OuS1axzNIk0nMX6jSgy6ZURDZ2w0QW6D56g==}
     cpu: [s390x]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-x64-gnu@4.24.0':
     resolution: {integrity: sha512-ZXFk7M72R0YYFN5q13niV0B7G8/5dcQ9JDp8keJSfr3GoZeXEoMHP/HlvqROA3OMbMdfr19IjCeNAnPUG93b6A==}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-x64-musl@4.24.0':
     resolution: {integrity: sha512-w1i+L7kAXZNdYl+vFvzSZy8Y1arS7vMgIy8wusXJzRrPyof5LAb02KGr1PD2EkRcl73kHulIID0M501lN+vobQ==}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
 
   '@rollup/rollup-win32-arm64-msvc@4.24.0':
     resolution: {integrity: sha512-VXBrnPWgBpVDCVY6XF3LEW0pOU51KbaHhccHw6AS6vBWIC60eqsH19DAeeObl+g8nKAz04QFdl/Cefta0xQtUQ==}
@@ -2150,6 +2132,7 @@ packages:
 
   critters@0.0.24:
     resolution: {integrity: sha512-Oyqew0FGM0wYUSNqR0L6AteO5MpMoUU0rhKRieXeiKs+PmRTxiJMyaunYB2KF6fQ3dzChXKCpbFOEJx3OQ1v/Q==}
+    deprecated: Ownership of Critters has moved to the Nuxt team, who will be maintaining the project going forward. If you'd like to keep using Critters, please switch to the actively-maintained fork at https://github.com/danielroe/beasties
 
   cross-fetch@3.1.8:
     resolution: {integrity: sha512-cvA+JwZoU0Xq+h6WkMvAUqPEYy92Obet6UdKLfW60qn99ftItKjB5T+BkyWOFWe2pUyfQ+IJHmpOTznqk1M6Kg==}
@@ -4571,8 +4554,8 @@ packages:
       '@vue/composition-api':
         optional: true
 
-  vue-i18n@10.0.4:
-    resolution: {integrity: sha512-1xkzVxqBLk2ZFOmeI+B5r1J7aD/WtNJ4j9k2mcFcQo5BnOmHBmD7z4/oZohh96AAaRZ4Q7mNQvxc9h+aT+Md3w==}
+  vue-i18n@10.0.5:
+    resolution: {integrity: sha512-9/gmDlCblz3i8ypu/afiIc/SUIfTTE1mr0mZhb9pk70xo2csHAM9mp2gdQ3KD2O0AM3Hz/5ypb+FycTj/lHlPQ==}
     engines: {node: '>= 16'}
     peerDependencies:
       vue: ^3.0.0
@@ -5765,7 +5748,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@intlify/bundle-utils@8.0.0(vue-i18n@10.0.4(vue@3.5.12(typescript@5.6.3)))':
+  '@intlify/bundle-utils@8.0.0(vue-i18n@10.0.5(vue@3.5.12(typescript@5.6.3)))':
     dependencies:
       '@intlify/message-compiler': 9.14.1
       '@intlify/shared': 9.14.1
@@ -5777,16 +5760,16 @@ snapshots:
       source-map-js: 1.2.1
       yaml-eslint-parser: 1.2.3
     optionalDependencies:
-      vue-i18n: 10.0.4(vue@3.5.12(typescript@5.6.3))
+      vue-i18n: 10.0.5(vue@3.5.12(typescript@5.6.3))
 
-  '@intlify/core-base@10.0.4':
+  '@intlify/core-base@10.0.5':
     dependencies:
-      '@intlify/message-compiler': 10.0.4
-      '@intlify/shared': 10.0.4
+      '@intlify/message-compiler': 10.0.5
+      '@intlify/shared': 10.0.5
 
-  '@intlify/message-compiler@10.0.4':
+  '@intlify/message-compiler@10.0.5':
     dependencies:
-      '@intlify/shared': 10.0.4
+      '@intlify/shared': 10.0.5
       source-map-js: 1.2.1
 
   '@intlify/message-compiler@9.14.1':
@@ -5794,15 +5777,15 @@ snapshots:
       '@intlify/shared': 9.14.1
       source-map-js: 1.2.1
 
-  '@intlify/shared@10.0.4': {}
+  '@intlify/shared@10.0.5': {}
 
   '@intlify/shared@9.13.1': {}
 
   '@intlify/shared@9.14.1': {}
 
-  '@intlify/unplugin-vue-i18n@4.0.0(rollup@2.79.2)(vue-i18n@10.0.4(vue@3.5.12(typescript@5.6.3)))':
+  '@intlify/unplugin-vue-i18n@4.0.0(rollup@2.79.2)(vue-i18n@10.0.5(vue@3.5.12(typescript@5.6.3)))':
     dependencies:
-      '@intlify/bundle-utils': 8.0.0(vue-i18n@10.0.4(vue@3.5.12(typescript@5.6.3)))
+      '@intlify/bundle-utils': 8.0.0(vue-i18n@10.0.5(vue@3.5.12(typescript@5.6.3)))
       '@intlify/shared': 9.14.1
       '@rollup/pluginutils': 5.1.2(rollup@2.79.2)
       '@vue/compiler-sfc': 3.5.12
@@ -5815,7 +5798,7 @@ snapshots:
       source-map-js: 1.2.1
       unplugin: 1.14.1
     optionalDependencies:
-      vue-i18n: 10.0.4(vue@3.5.12(typescript@5.6.3))
+      vue-i18n: 10.0.5(vue@3.5.12(typescript@5.6.3))
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -9671,7 +9654,7 @@ snapshots:
       '@clack/prompts': 0.7.0
       '@ctrl/tinycolor': 4.1.0
       '@iconify-json/ri': 1.2.1
-      '@intlify/unplugin-vue-i18n': 4.0.0(rollup@2.79.2)(vue-i18n@10.0.4(vue@3.5.12(typescript@5.6.3)))
+      '@intlify/unplugin-vue-i18n': 4.0.0(rollup@2.79.2)(vue-i18n@10.0.5(vue@3.5.12(typescript@5.6.3)))
       '@types/katex': 0.16.7
       '@types/luxon': 3.4.2
       '@unhead/addons': 1.11.7(rollup@2.79.2)
@@ -9739,7 +9722,7 @@ snapshots:
       vite-ssg: 0.23.7(critters@0.0.24)(vite@5.4.8(@types/node@22.7.5)(sass@1.79.5)(stylus@0.54.8)(terser@5.34.1))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))
       vite-ssg-sitemap: 0.6.1
       vue: 3.5.12(typescript@5.6.3)
-      vue-i18n: 10.0.4(vue@3.5.12(typescript@5.6.3))
+      vue-i18n: 10.0.5(vue@3.5.12(typescript@5.6.3))
       vue-router: 4.4.5(vue@3.5.12(typescript@5.6.3))
       yargs: 17.7.2
     transitivePeerDependencies:
@@ -9935,10 +9918,10 @@ snapshots:
     dependencies:
       vue: 3.5.12(typescript@5.6.3)
 
-  vue-i18n@10.0.4(vue@3.5.12(typescript@5.6.3)):
+  vue-i18n@10.0.5(vue@3.5.12(typescript@5.6.3)):
     dependencies:
-      '@intlify/core-base': 10.0.4
-      '@intlify/shared': 10.0.4
+      '@intlify/core-base': 10.0.5
+      '@intlify/shared': 10.0.5
       '@vue/devtools-api': 6.6.4
       vue: 3.5.12(typescript@5.6.3)
 
